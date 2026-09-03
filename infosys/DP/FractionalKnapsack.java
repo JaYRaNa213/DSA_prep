@@ -1,5 +1,4 @@
 import java.util.Arrays;
-
 public class FractionalKnapsack {
 
     public static double fractionalKnapsack(int[] val, int[] wt, double capacity) {
@@ -17,25 +16,27 @@ public class FractionalKnapsack {
         // {100 20 5 }
         // {120 30 4};
 
-        Arrays.sort(items, (a,b)-> Double.compare(b[2], a[2]));
+        Arrays.sort( items, (a,b) -> Double.compare(b[2],a[2]));
         // {60  10 6 }
         // {100 20 5 }
         // {120 30 4};
 
-        double result = 0;
-        // capacity = 50 
-        for ( int i = 0 ; i  < n ; i ++){
+        double profit = 0;
 
-            if ( items[i][1] <= capacity){
-                result = result + items[i][0];
-                capacity = capacity- items[i][1];
-            }else{
-                result = result + capacity * items[i][2]; 
-                break;
+        for ( int i = 0; i < n ; i++){
+
+            if( items[i][1]< capacity){
+                profit = profit + items[i][0];
+                capacity = capacity - items[i][1];
+            }
+            else{
+                profit = profit + capacity* items[i][2];
+
             }
         }
+        return profit;
 
-        return result;
+        
 
 
     }

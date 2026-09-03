@@ -25,16 +25,10 @@ class subSetSum{
       }
     }
     return dp[target]; 
-
   }
   public static void main ( String args[]){
-
     int arr[] = {6,1,8,9};
     boolean ans = solve(arr);
-
     System.out.print(ans);
-
-
-
   }
 }
