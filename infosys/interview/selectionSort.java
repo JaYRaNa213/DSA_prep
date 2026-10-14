@@ -1,0 +1,29 @@
+public class selectionSort {
+
+  public static void selectionSortImpl(int arr[]){
+    int n = arr.length;
+
+    for ( int i = 0 ; i < n ; i ++){
+      for ( int j = 0 ; j < n ; j ++){
+
+        if ( arr[i]< arr[j]){
+          int temp = arr[j];
+          arr[j] = arr[i];
+          arr[i] = temp;
+        }
+      }
+    }
+
+    for ( int i = 0; i < n ; i ++){
+      System.out.print(arr[i]+" ");
+    }
+  }
+
+
+  public static void main(String[] args) {
+    int arr[] = { 2, 1, 9, 6,3,0};
+
+    selectionSortImpl(arr);
+  }
+  
+}

@@ -2,7 +2,6 @@ import java.util.Queue;
 import java.util.LinkedList;
 
 public class levelOeder {
-
     // TreeNode class
     static class TreeNode {
         int val;
@@ -16,42 +15,34 @@ public class levelOeder {
         }
     }
 
+    
+
 
     // Level Order Traversal
     public static void levelOrderTraversal(TreeNode root) {
         // Create a Queue
         Queue<TreeNode> queue = new LinkedList<>();
-
         if ( root == null) {
             return;
         }
-
         queue.offer( root);
-
         while(!queue.isEmpty()){
-
-
             int size = queue.size();
             for ( int i = 0 ; i < size ; i ++){
-
-            
             TreeNode treeNode = queue.poll();
-             if ( i == size -1){
-                System.out.print(treeNode.val + " --> ");
-             }   
-
-            // System.out.print(treeNode.val+"--> ");
-
+             // Normal lavel order traversal
+            System.out.print(treeNode.val+"--> ");
+             // Print the last element of each level
+            //  if ( i == size-1){
+            //     System.out.print(treeNode.val + " --> ");
+            //  }   
             if ( treeNode.left!= null){
                 queue.offer(treeNode.left);
             }
             if( treeNode.right != null){
                 queue.offer(treeNode.right);
             }
-
             }
-
-           
         }
     }
 

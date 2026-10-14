@@ -5,40 +5,35 @@ public class LongestSubstringWithoutRepeating {
 
     public static int longestSubstring(String s) {
 
-int len ;
-int maxlen = 0;
-        
+    int len ;
+    int maxlen = 0;
 
-        for ( int i = 0 ; i< s.length() ; i ++){
+    int l = 0;
+    int r = 0;
+
+    HashMap < Character , Integer> map = new HashMap<>();
 
 
-            HashMap<Character, Integer> map = new HashMap <>();
+    while ( r< s.length()){
+        while ( map.containsKey(s.charAt(r))){
+            map.remove(s.charAt(l));
+            l++;
 
-            for ( int j = 0; j < s.length(); j ++){
-
-                if ( !map.containsKey(s.charAt(i))){
-                map.put( s.charAt(j), 1);
-                len = map.size();
-                }
-
-               else { 
-
-                break;
-            }
-
-            maxlen = Math.max( len, maxlen);
-            }
         }
 
+        map.put(s.charAt(r),1);
+        maxlen = Math.max(maxlen , r-l+1);
+        r++;
 
+    }
         return maxlen ;
 
     }
 
     public static void main(String[] args) {
 
-        String s = "abcaabcdab";
-        System.out.println(longestSubstring(s)); // Output: 3
+        String s = "abcaabcdefab";
+        System.out.println(longestSubstring(s));
     }
 }
 

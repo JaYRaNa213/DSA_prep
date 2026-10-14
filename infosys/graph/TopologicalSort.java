@@ -52,25 +52,25 @@ public class TopologicalSort {
         int V = 6;
 
         // Create graph
-        ArrayList<Integer>[] graph = new ArrayList[V];
+        ArrayList<Integer>[] adj = new ArrayList[V];
 
         for (int i = 0; i < V; i++) {
-            graph[i] = new ArrayList<>();
+            adj[i] = new ArrayList<>();
         }
 
         // Directed edges
-        graph[5].add(2);
-        graph[5].add(0);
+        adj[5].add(2);
+        adj[5].add(0);
 
-        graph[4].add(0);
-        graph[4].add(1);
+        adj[4].add(0);
+        adj[4].add(1);
 
-        graph[2].add(3);
+        adj[2].add(3);
 
-        graph[3].add(1);
+        adj[3].add(1);
 
         // Topological Sort
-        ArrayList<Integer> result = topoSort(graph, V);
+        ArrayList<Integer> result = topoSort(adj, V);
 
         System.out.println("Topological Order:");
 

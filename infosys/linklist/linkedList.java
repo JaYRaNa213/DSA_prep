@@ -12,13 +12,12 @@ public class linkedList {
     }
 
     static class MyLinkedList {
-
         Node head;
-
         // Insert at beginning
         void insertAtBeginning(int data) {
 
-            Node newNode = new Node(data);
+
+            Node newNode = new Node (data);
 
             newNode.next = head;
             head = newNode;
@@ -113,6 +112,22 @@ public class linkedList {
             }
 
             System.out.println("null");
+        }
+
+        void reverseList (Node head ){
+
+            Node prev = null;
+            Node curr = head;
+            while( curr!= null){
+
+                Node next = curr.next;
+
+                curr.next = prev;
+                prev= curr;
+                curr= next;
+
+            }
+
         }
     }
 

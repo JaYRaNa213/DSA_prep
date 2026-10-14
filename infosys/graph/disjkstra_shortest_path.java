@@ -4,27 +4,18 @@ class disjkstra_shortest_path {
     public int[] dijkstra(int V, ArrayList<ArrayList<int[]>> adj, int S) {
      
       PriorityQueue<int[]> pQueue = new PriorityQueue<>((a,b)-> Integer.compare(a[0],b[0]));
-
       int result [] = new int[V];
-
       Arrays.fill(result,Integer.MAX_VALUE);
-      // [ % , % ,% ,% ]
-
-
-
+      // [ distance, vertex ]
       pQueue.offer(new int []{ 0 , S});
 
       result[S] = 0;
 
 
       while(!pQueue.isEmpty()){
-
         int [] current = pQueue.poll();
-
         int d = current[0];
         int node = current [1];
-
-
         for ( int [] neighbour : adj.get(node)){
           int adjNode = neighbour[0];
           int dis = neighbour[1];

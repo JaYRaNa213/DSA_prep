@@ -44,34 +44,32 @@ public class LongestSubstringAtMostKDistinct {
 
     public static int longestSubstring(String s, int k) {
 
-        int left = 0;
-        int right = 0;
+        int l = 0;
+        int r = 0;
         int maxLen = 0;
 
-        HashMap<Character, Integer> map = new HashMap<>();
+        HashMap < Character, Integer> map = new HashMap<>();
 
-        while (right < s.length()) {
+        char arr[] = s.toCharArray();
 
-            map.put(s.charAt(right),
-                    map.getOrDefault(s.charAt(right), 0) + 1);
 
-            while (map.size() > k) {
+        while (r< s.length()){
+            map.put(arr[r], map.getOrDefault(arr[r], 0)+ 1);
 
-                map.put(s.charAt(left),
-                        map.get(s.charAt(left)) - 1);
-
-                if (map.get(s.charAt(left)) == 0) {
-                    map.remove(s.charAt(left));
+            while(map.size()> k){
+                map.put(arr[l], map.get(arr[l])-1);
+                if ( map.get(arr[l] )== 0){
+                    map.remove(arr[l]);
                 }
-
-                left++;
+                l++;
             }
+            maxLen = Math.max(r-l+1, maxLen);
 
-            maxLen = Math.max(maxLen, right - left + 1);
-            right++;
+            r++;
         }
-
         return maxLen;
+
+        
     }
 
     public static void main(String[] args) {

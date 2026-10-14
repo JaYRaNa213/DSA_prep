@@ -7,7 +7,7 @@ public class twise{
 
     int arr [ ] =  {4,2,3,0,3,2,8,4,9,7};
 
-  //   HashMap<Integer, Integer> map = new HashMap<>();
+  //  HashMap<Integer, Integer> map = new HashMap<>();
 
   //  for ( int i = 0 ; i < arr.length; i ++){
 
